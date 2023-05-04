@@ -41,7 +41,15 @@ class KittensController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
+    @kitten = Kitten.find(params[:id])
+    if @kitten.destroy
+      flash[:success] = 'Kitten deleted!'
+      redirect_to kittens_path
+    else
+      flash[:error] = 'Kitten deletion failed!'
+      redirect_to @kitten
+    end
   end
 
   private
