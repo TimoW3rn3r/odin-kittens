@@ -17,6 +17,17 @@
       </div>
     <% end %>
 
+    <nav>
+      <ul>
+        <li>
+          <%= link_to "Home", root_path %>
+        </li>
+        <li>
+          <%= link_to "New Kitten", new_kitten_path %>
+        </li>
+      </ul>
+    </nav>
+
     <%= yield %>
   </body>
 </html>
