@@ -25,9 +25,20 @@ class KittensController < ApplicationController
   end
 
   def edit
+    @kitten = Kitten.find(params[:id])
   end
 
   def update
+    @kitten = Kitten.find(params[:id])
+    @kitten.update(kitten_params)
+
+    if @kitten.save
+      flash[:success] = "Kitten updated!"
+      redirect_to @kitten
+    else
+      flash[:error] = @kitten.errors.full_messages.first
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def delete
