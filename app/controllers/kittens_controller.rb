@@ -1,5 +1,4 @@
 class KittensController < ApplicationController
-  
   def index
     @kittens = Kitten.all
 
@@ -17,8 +16,8 @@ class KittensController < ApplicationController
     @kitten = Kitten.new(kitten_params)
 
     if @kitten.save
-      flash[:success] = "Kitten created!"
-      redirect_to kittens_path
+      flash[:success] = 'Kitten created!'
+      redirect_to @kitten
     else
       flash[:error] = @kitten.errors.full_messages.first
       render :new, status: :unprocessable_entity
@@ -43,7 +42,7 @@ class KittensController < ApplicationController
     @kitten.update(kitten_params)
 
     if @kitten.save
-      flash[:success] = "Kitten updated!"
+      flash[:success] = 'Kitten updated!'
       redirect_to @kitten
     else
       flash[:error] = @kitten.errors.full_messages.first
