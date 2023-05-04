@@ -1,5 +1,7 @@
 <h2><%= @kitten.name %></h2>
 
+<%= render partial: 'modify', locals: { kitten: @kitten } %>
+
 <p>Age: <%= @kitten.age %></p>
 <p>Cuteness: <%= @kitten.cuteness %></p>
 <p>Softness: <%= @kitten.softness %></p>

@@ -2,6 +2,9 @@
 
 <ol>
   <% @kittens.each do |kitten| %>
-    <li><%= link_to kitten.name, kitten %></li>
+    <li>
+      <%= link_to kitten.name, kitten %><br>
+      <%= render partial: 'modify', locals: { kitten: kitten } %>
+    </li>
   <% end %>
 </ol>

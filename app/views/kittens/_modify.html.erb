@@ -1,11 +1,8 @@
-<h2>Edit Kitten</h2>
-
+<%= link_to :edit, edit_kitten_path(kitten) %>
 <%= link_to :delete,
-  @kitten,
+  kitten,
   data: {
     turbo_method: :delete,
     turbo_confirm: "Are you sure?"
   }
 %>
-
-<%= render partial: 'form', locals: { kitten: @kitten } %>
